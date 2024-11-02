@@ -28,4 +28,7 @@ git remote add origin <github_repo_path>
     Here origin is the alias used for the <github_repo_path>
 
 git config -l - To see all the configuration
+
+git remote show : 
+    when we run this commnd within the project repository the alias for the url will be shown.
         
