@@ -24,6 +24,11 @@ Initialized empty Git repository in /home/gopikrishna/github_function_test/.git/
 
 git rm --cached <file>..." to unstage To remove the changes made during the git add
 
+git push -u <alias_of_repo_url> <branch_to_addls
+c>
+
+git remote add <alias_to_github_repo_url> <url_to_the_github_repo>
+
 git remote add origin <github_repo_path>
     Here origin is the alias used for the <github_repo_path>
 
@@ -31,4 +36,7 @@ git config -l - To see all the configuration
 
 git remote show : 
     when we run this commnd within the project repository the alias for the url will be shown.
+
+git clone --branch :
+    To specify from which branch to clone from
         
