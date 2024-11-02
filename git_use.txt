@@ -1,0 +1,31 @@
+Staging : 
+    To stage a file is simply to prepare it finely for a commit. Git, with its index allows you to commit only certain parts of the 
+    changes you've done since the last commit. Say you're working on two features - one is finished, and one still needs some work done. 
+    You'd like to make a commit and go home (5 o'clock, finally!) but wouldn't like to commit the parts of the second feature, 
+    which is not done yet. You stage the parts you know belong to the first feature, and commit. Now your commit is your project with 
+    the first feature done, while the second is still in work-in-progress in your working directory.
+
+git init : 
+    It is used to initialize a new, empty repository. If we already ran a git init in the project directory and a .git is made then we 
+    can safely re-run it without the worry of override.
+
+git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name> To master as the initial branch name for all the project.
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name> To rename the repository, -m is the message we want to include
+Initialized empty Git repository in /home/gopikrishna/github_function_test/.git/
+
+git rm --cached <file>..." to unstage To remove the changes made during the git add
+
+git remote add origin <github_repo_path>
+    Here origin is the alias used for the <github_repo_path>
+
+git config -l - To see all the configuration
+        
