@@ -1,52 +1,48 @@
+/*
+    <string>.substr(<from_index>, <number_of_characters))
+    substr is a part of the 'string' header
+*/
+
 #include<iostream>
+#include<string>
 using namespace std;
+
+//LeetCode
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        string substring;
-        string tempstring;
-        int length=0;
-        int a=0;
-        int i=0;
-        auto it = s.begin(); // .begin returns an iterator 
-        for (; i<s.size();){
-            if (tempstring.find(it[i]) == string::npos){
-                cout << "if " << i << endl;
-                cout << it[i] << endl;
-                tempstring.insert(tempstring.begin(),it[i]);
-                if (i==s.size()-1){
-                    substring = tempstring;
-                    length = tempstring.size();
-                    a+=1;
-                    i = a;
+        int length = 0;
+        if ( s.size() <= 0 || s.size() >= 50000 ){
+            return length;
+        }
+        for ( int i=0; i<s.size(); i++ ){
+            string substring =  s.substr(i);
+            cout << "substring " << substring << endl;
+            auto it = substring.begin();
+            int count = 0;
+            string tempstring;
+            for ( int j=0; j<substring.size(); j++){
+                if ( tempstring.find(it[j]) == string::npos ){
+                    tempstring.insert(tempstring.begin(),it[j]);
+                    count++;
+                } else {
+                    break;
                 }
-                i++;
-            } else {
-                if (length<tempstring.size()){
-                    cout << "else " << i << endl;
-                    // cout << "tempstring size " << tempstring.size() << endl;
-                    length = tempstring.size();
-                    substring = tempstring;
-                    // cout << "substring " << substring << endl;
-                    // cout << "tempstring " << tempstring << endl;
-                    tempstring.clear();
-                    // cout << "tempstring after clear " << tempstring.size() << endl;
-                    // cout << "i " << i << endl;
-                    // cout << "it[i]" << it[i] << endl;
-                    tempstring.insert(tempstring.begin(),it[i]);
-                    // cout << tempstring << endl;
-                    a+=1;
-                    i = a;
-                }
-            }   
+            }
+            if ( length < count ){
+                length = count;
+                cout << "tempstring " << tempstring << endl;
+                cout << "length     " << length << "\n" << endl;
+            }
         }
         return length;
     }
 };
+
 int main(void){
 
     Solution sol;
-    string str = "dvdf";
+    string str ="bb ";
     int length = sol.lengthOfLongestSubstring(str);
     cout << "String " << str << " Length " << length << endl;
 
@@ -66,6 +62,42 @@ int main(void){
 }
 /*
 
-
+ // auto it = s.substr(sub).begin();
+            // if ( tempstring.find(it[i]) == string::npos ){
+            //     tempstring.insert(tempstring.begin(),it[i]);
+            //     i++;
+            // }
+            // else{
+            //     sub=sub+1;
+            //     i=0;
+            //     cout << tempstring << endl;
+            //     length = tempstring.size();
+            //     cout << length << endl;
+            //     tempstring.clear();
+            // }
+            //cout << "Iteration " << i << " sub " << sub << endl;
+            //cout << "substring " << s.substr(sub) << endl;
+            // auto it = s.substr(sub).begin(); // Used to iterator over the contents of the 
+            // if ( tempstring.find(it[i]) == string::npos ){
+            //     cout << "sub " << s.substr(sub) << endl;
+            //     cout << it[i] << endl;
+            //     tempstring.insert(tempstring.begin(),it[i]);
+            //     length = tempstring.size();
+            //     i++;
+            // }
+            // else if ( tempstring.find(it[i]) != string::npos ) {
+            //     // if ( length < tempstring.size() ){
+            //     //     length = tempstring.size();
+            //     // }
+            //     sub=sub+1;
+            //     a=a+1;
+            //     i = a;
+            //     cout << "tempstring " << tempstring << endl ;
+            //     cout << "length " << length << endl ;
+            //     tempstring.clear();
+            // }
+            // else{
+            //     cout<< "you missed" << endl;
+            // }
 
 */
